@@ -1,9 +1,13 @@
+import { configureStore } from '@reduxjs/toolkit';
 
-import { createStore, combineReducers } from 'redux'
-import reducerProducts from './products/index'
+import productsReducer from './ducks/products';
+import layoutReducer from './ducks/layout';
+import cartReducer from './ducks/cart'
 
-const reducerRoot = combineReducers({
-    products: reducerProducts
-});
-
-export default createStore(reducerRoot);
+export default configureStore({
+	reducer: {
+		products: productsReducer,
+		layout: layoutReducer,
+		cart: cartReducer
+	}
+})
